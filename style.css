@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightcoral;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display:flex;
+    flex-wrap: wrap;
+    width: 960px;
+}
+
+.container div {
+    border: 1px solid red;
+    width: 60px;
+    height:25px;
+}
+
+.container div:nth-child(17n +1) {
+    width:100%;
+    border: 0;
+    height: 0;
+}
+
+.draw {
+    background-color: #1e1e1e;
+}
