@@ -3,9 +3,12 @@ let drawEnabled = false;
 
 let divPrSide = prompt('How many squares do you want pr. side?', '50');
 
-for (let i = 0; i <= divPrSide * 16; i++) {
+for (let i = 0; i <= divPrSide; i++) {
   const gridDiv = document.createElement('div');
-  gridDiv.classList.add('divstyle');
+  const divWidth = `calc((${divPrSide} / 960) * ${divPrSide}px)`;
+
+  gridDiv.style.border = '1px solid red';
+  gridDiv.style.width = divWidth;
   container.appendChild(gridDiv);
 
   gridDiv.addEventListener('mousedown', function () {
