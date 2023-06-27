@@ -13,6 +13,7 @@ h1 {
     text-align: left;
     margin: 0;
     color: #3e3e3e;
+    font-size: 52px;
 }
 
 h3 {
@@ -37,11 +38,11 @@ input {
 }
 
 .headerTitle {
-    width: 280px;
+    width: 660px;
 }
 
 .headerDummy {
-    width: 660px;
+    width: 280px;
     margin-left:-140px;
 }
 
@@ -118,13 +119,13 @@ input {
     opacity: 1;
 }
 
-.controlColor {
-    margin-bottom: 0px;
-}
-
 .colorEraseContainer {
     display: flex;
     align-items: center;
+}
+
+.colorContainer {
+    margin-right: 8px;
 }
 
 .colorContainer input[type="color"] {
