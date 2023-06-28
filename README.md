@@ -1,2 +1,2 @@
 # etch-a-sketch
-The Odin Project etch-a-sketch js challenge
+Become a pixel art champion
