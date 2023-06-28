@@ -20,12 +20,13 @@ function updateGrid() {
 
   container.innerHTML = '';
 
+  const containerWidth = container.offsetWidth;
+  const divSize = containerWidth / gridSize;
+
   for (let i = 0; i < totalSquares; i++) {
     const gridDiv = document.createElement('div');
-    const divSize = 660 / gridSize;
 
     gridDiv.classList.add('grid-div');
-    gridDiv.style.border = '1px solid lightblue';
     gridDiv.style.width = divSize + 'px';
     gridDiv.style.height = divSize + 'px';
     container.appendChild(gridDiv);
@@ -52,7 +53,20 @@ container.addEventListener('mouseover', function (event) {
   }
 });
 
-// erase functionality
+// color functionality
+
+const colorLabel = document.querySelector('.colorLabel');
+const colorSelector = document.getElementById('favcolor');
+
+colorSelector.addEventListener('mouseover', function () {
+  colorLabel.classList.add('labelStyleHover');
+});
+
+colorSelector.addEventListener('mouseout', function () {
+  colorLabel.classList.remove('labelStyleHover');
+});
+
+// erase setting functionality
 const eraser = document.querySelector('.eraser');
 
 eraser.addEventListener('click', function () {
@@ -63,7 +77,23 @@ eraser.addEventListener('click', function () {
   });
 });
 
-// slide value
+// create grid setting functionality
+const gridSetting = document.querySelector('.gridSetting');
+
+gridSetting.addEventListener('click', function () {
+  const gridDivs = document.querySelectorAll('.grid-div'); // create nodelist of all divs with .grid-div class
+  gridSetting.classList.toggle('gridActive');
+  gridDivs.forEach(function (gridDiv) {
+    // create a forEach loop that iterates over all created divs, and removes draw class
+    if (gridDiv.classList.contains('borderSetting')) {
+      gridDiv.classList.remove('borderSetting');
+    } else {
+      gridDiv.classList.add('borderSetting');
+    }
+  });
+});
+
+// slide value and tooltib
 slider.addEventListener('mousemove', function (event) {
   const thumbWidth = 25; // Width of the slider thumb
   const sliderWidth = this.offsetWidth;

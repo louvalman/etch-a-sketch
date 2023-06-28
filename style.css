@@ -38,7 +38,7 @@ input {
 }
 
 .headerTitle {
-    width: 660px;
+    width: 600px;
 }
 
 .headerDummy {
@@ -119,22 +119,40 @@ input {
     opacity: 1;
 }
 
-.colorEraseContainer {
+.settingsContainer {
     display: flex;
     align-items: center;
+    gap:8px;
 }
 
 .colorContainer {
-    margin-right: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .colorContainer label {
+    position: absolute;
+    font-size: 14px;
+    font-weight: 300;
+    color: #3e3e3e;
+    z-index: 1;
+    background-color: transparent;
+    pointer-events: none;
+    transition: 0.1s;
+  }
+
+.labelStyleHover {
+    cursor: pointer;
+    color:whitesmoke !important;
 }
 
 .colorContainer input[type="color"] {
     background: transparent;
     border: none;
     inline-size: 64px;
-    block-size: 64px;
-    padding: 0;
-    margin: 0;
+    block-size: 72px;
 }
 
 .colorContainer input[type="color"]::-webkit-color-swatch {
@@ -154,11 +172,8 @@ input {
     opacity: 1;
 }
 
-.eraseGrid {
-    margin-bottom: 0px;
-}
-
-.eraser {
+.buttonClass {
+    font-weight: 300;
     background: transparent;
     border: solid 2px lightblue;
     border-radius: 100%;
@@ -168,21 +183,37 @@ input {
     opacity: 0.8;
 }
 
-.eraser:hover {
+.buttonClass:hover {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 1.5px 4px;
-    color: whitesmoke;
+    color:whitesmoke;
     background-color: lightblue;
     border-color: transparent;
     cursor: pointer;
     opacity: 1;
 }
 
+.gridActive {
+    background-color: lightblue;
+}
+
+.borderSetting {
+    border: 1px solid lightblue;
+}
+
+.gridContainerBorder {
+    display: inline-block;
+    border: solid 4px lightblue;
+    margin-left: -140px;
+}
+  
+.gridContainerWrapper {
+}
+  
 .gridContainer {
     display: flex;
     flex-wrap: wrap;
-    max-width: 660px;
-    max-height: 660px;
-    margin-left:-140px;
+    width: 600px;
+    height: 600px;
 }
 
 .draw {
