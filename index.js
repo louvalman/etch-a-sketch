@@ -2,17 +2,38 @@ const container = document.querySelector('.gridContainer');
 const slider = document.getElementById('setGridSize');
 const tooltip = document.querySelector('.slider-tooltip');
 
-// set grid size and fill with divs (on load and on value input with slider)
+// Set grid size and fill with divs (on load and on value input with slider)
 document.addEventListener('DOMContentLoaded', function () {
   updateGrid();
+  showTooltip();
+  setTimeout(fadeTooltip, 5000); // Fade the tooltip after 5 seconds
 });
 
+let value = slider.value;
+tooltip.innerHTML = `<i>${value} x ${value}</i>`;
+
 slider.addEventListener('input', function () {
-  const value = this.value;
-  tooltip.textContent = value;
-  tooltip.classList.add('show');
+  value = slider.value;
+  tooltip.innerHTML = `<i>${value} x ${value}</i>`;
   updateGrid();
+  showTooltip();
+  setTimeout(fadeTooltip, 5000); // Fade the tooltip after 5 seconds
 });
+
+slider.addEventListener('mouseover', function () {
+  showTooltip();
+  setTimeout(fadeTooltip, 1000);
+});
+
+// Show tooltip function
+function showTooltip() {
+  tooltip.style.opacity = '1';
+}
+
+// Fade tooltip function
+function fadeTooltip() {
+  tooltip.style.opacity = '0';
+}
 
 function updateGrid() {
   let gridSize = slider.value;
@@ -33,30 +54,45 @@ function updateGrid() {
   }
 }
 
-// color functionality
-const colorSelector = document.getElementById('favcolor');
-
+// initialize color and erasing variables and select colorpicker
 let isDrawing = false;
+let isErasing = false;
+let isMousePressed = false;
+
+const colorSelector = document.getElementById('favcolor');
 
 // set color of clicked grid element to input value
 container.addEventListener('mousedown', function (event) {
   if (event.target.matches('.grid-div')) {
-    isDrawing = true;
-    event.target.style.backgroundColor = colorSelector.value;
+    isMousePressed = true;
+    if (isErasing) {
+      eraseGridDivs(event.target);
+    } else {
+      isDrawing = true;
+      event.target.style.backgroundColor = colorSelector.value;
+    }
   }
 });
 
 container.addEventListener('mouseup', function () {
   isDrawing = false;
+  isMousePressed = false;
 });
 
 container.addEventListener('mouseover', function (event) {
-  if (isDrawing && event.target.matches('.grid-div')) {
+  if (
+    isDrawing &&
+    isMousePressed &&
+    event.target.matches('.grid-div') &&
+    !isErasing
+  ) {
     event.target.style.backgroundColor = colorSelector.value;
+  } else if (isErasing && isMousePressed) {
+    eraseGridDivs(event.target);
   }
 });
 
-// erase setting functionality
+// clear setting functionality
 const eraser = document.querySelector('.eraser');
 
 eraser.addEventListener('click', function () {
@@ -65,6 +101,19 @@ eraser.addEventListener('click', function () {
     gridDiv.style.backgroundColor = 'whitesmoke';
   });
 });
+
+// erase setting functionality
+const eraserC = document.querySelector('.eraserC');
+
+eraserC.addEventListener('click', function () {
+  isErasing = !isErasing;
+  eraserC.classList.toggle('gridActive');
+});
+
+// function to erase grid divs
+function eraseGridDivs(target) {
+  target.style.backgroundColor = 'whitesmoke';
+}
 
 // create grid setting functionality
 const gridSetting = document.querySelector('.gridSetting');
@@ -79,23 +128,4 @@ gridSetting.addEventListener('click', function () {
       gridDiv.classList.add('borderSetting');
     }
   });
-});
-
-// slide value and tooltip
-slider.addEventListener('mousemove', function (event) {
-  const thumbWidth = 25; // Width of the slider thumb
-  const sliderWidth = this.offsetWidth;
-  const tooltipWidth = tooltip.offsetWidth;
-  const tooltipPosition = event.offsetX - tooltipWidth / 2 + thumbWidth / 2;
-
-  tooltip.style.left = `${tooltipPosition}px`;
-
-  // Hide the tooltip when the mouse is not over the slider
-  if (event.target !== this) {
-    tooltip.classList.remove('show');
-  }
-});
-
-slider.addEventListener('mouseleave', function () {
-  tooltip.classList.remove('show');
 });
