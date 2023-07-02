@@ -52,7 +52,6 @@ input {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    align-items: flex-start; /* Added alignment */
 }
 
 .controlsContainer {
@@ -63,7 +62,6 @@ input {
 .controlGridSize, .controlColor {
     width: 280px;
     height: 120px;
-    margin-bottom: 0px;
 }
 
 .slidecontainer {
@@ -101,17 +99,14 @@ input {
 .slider-tooltip {
     font-weight: 300;
     position: absolute;
-    bottom: -30px;
+    bottom: -32px;
     left: 50%;
     transform: translateX(-50%);
     background-color: lightblue;
     color: #3e3e3e;
     padding: 4px 4px;
     border-radius: 4px;
-    white-space: nowrap;
     font-size: 12px;
-    z-index: 1;
-    pointer-events: none;
     transition: opacity 0.5s;
     opacity: 0;
 }
@@ -198,7 +193,6 @@ input {
 }
 
 .gridContainerBorder {
-    display: inline-block;
     border: solid 4px lightblue;
     margin-left: -140px;
 }
