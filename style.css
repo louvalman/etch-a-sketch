@@ -60,7 +60,7 @@ input {
     flex-direction: column;
 }
 
-.controlGridSize, .controlColor, .eraseGrid {
+.controlGridSize, .controlColor {
     width: 280px;
     height: 120px;
     margin-bottom: 0px;
@@ -208,16 +208,9 @@ input {
     margin-left: -140px;
 }
   
-.gridContainerWrapper {
-}
-  
 .gridContainer {
     display: flex;
     flex-wrap: wrap;
     width: 600px;
     height: 600px;
-}
-
-.draw {
-    background-color: #1e1e1e;
 }

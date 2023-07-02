@@ -33,47 +33,36 @@ function updateGrid() {
   }
 }
 
-// draw functionality
-let drawEnabled = false;
+// color functionality
+const colorSelector = document.getElementById('favcolor');
 
+let isDrawing = false;
+
+// set color of clicked grid element to input value
 container.addEventListener('mousedown', function (event) {
-  drawEnabled = true;
-  if (drawEnabled && event.target.matches('.grid-div')) {
-    event.target.classList.add('draw');
+  if (event.target.matches('.grid-div')) {
+    isDrawing = true;
+    event.target.style.backgroundColor = colorSelector.value;
   }
 });
 
 container.addEventListener('mouseup', function () {
-  drawEnabled = false;
+  isDrawing = false;
 });
 
 container.addEventListener('mouseover', function (event) {
-  if (drawEnabled && event.target.matches('.grid-div')) {
-    event.target.classList.add('draw');
+  if (isDrawing && event.target.matches('.grid-div')) {
+    event.target.style.backgroundColor = colorSelector.value;
   }
-});
-
-// color functionality
-
-const colorLabel = document.querySelector('.colorLabel');
-const colorSelector = document.getElementById('favcolor');
-
-colorSelector.addEventListener('mouseover', function () {
-  colorLabel.classList.add('labelStyleHover');
-});
-
-colorSelector.addEventListener('mouseout', function () {
-  colorLabel.classList.remove('labelStyleHover');
 });
 
 // erase setting functionality
 const eraser = document.querySelector('.eraser');
 
 eraser.addEventListener('click', function () {
-  const gridDivs = document.querySelectorAll('.grid-div'); // create nodelist of all divs with .grid-div class
+  const gridDivs = document.querySelectorAll('.grid-div');
   gridDivs.forEach(function (gridDiv) {
-    // create a forEach loop that iterates over all created divs, and removes draw class
-    gridDiv.classList.remove('draw');
+    gridDiv.style.backgroundColor = 'whitesmoke';
   });
 });
 
@@ -81,10 +70,9 @@ eraser.addEventListener('click', function () {
 const gridSetting = document.querySelector('.gridSetting');
 
 gridSetting.addEventListener('click', function () {
-  const gridDivs = document.querySelectorAll('.grid-div'); // create nodelist of all divs with .grid-div class
+  const gridDivs = document.querySelectorAll('.grid-div');
   gridSetting.classList.toggle('gridActive');
   gridDivs.forEach(function (gridDiv) {
-    // create a forEach loop that iterates over all created divs, and removes draw class
     if (gridDiv.classList.contains('borderSetting')) {
       gridDiv.classList.remove('borderSetting');
     } else {
@@ -93,7 +81,7 @@ gridSetting.addEventListener('click', function () {
   });
 });
 
-// slide value and tooltib
+// slide value and tooltip
 slider.addEventListener('mousemove', function (event) {
   const thumbWidth = 25; // Width of the slider thumb
   const sliderWidth = this.offsetWidth;
