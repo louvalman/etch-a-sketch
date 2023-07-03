@@ -203,3 +203,44 @@ input {
     width: 600px;
     height: 600px;
 }
+
+.footerContainer {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 28px 0px;
+}
+
+.footerTitle {
+    width: 600px;
+    margin-left: -24px;
+}
+
+.footerDummy {
+    width: 280px;
+    margin-left:-140px;
+}
+
+
+.credits {
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  .credits a {
+    text-decoration: none;
+    color: #1e1e1e;
+  }
+
+  .credits a:hover {
+    color: lightskyblue;
+  }
+
+  .credits .fa {
+    font-size: 18px;
+    color: #1e1e1e;
+    transition: 0.33s;
+  }
+
+  .credits .fa:hover {
+    transform: rotateY(3.142rad);
+  }
