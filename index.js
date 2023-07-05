@@ -1,3 +1,5 @@
+// make settings panel wider and add rainbow button
+
 const container = document.querySelector('.gridContainer');
 const slider = document.getElementById('setGridSize');
 const tooltip = document.querySelector('.slider-tooltip');
@@ -57,6 +59,7 @@ function updateGrid() {
 // initialize color and erasing variables and select colorpicker
 let isDrawing = false;
 let isErasing = false;
+let isRainbowing = false;
 let isMousePressed = false;
 
 const colorSelector = document.getElementById('favcolor');
@@ -67,6 +70,9 @@ container.addEventListener('mousedown', function (event) {
     isMousePressed = true;
     if (isErasing) {
       eraseGridDivs(event.target);
+    } else if (isRainbowing) {
+      isDrawing = true;
+      rainbowGridDiv(event.target);
     } else {
       isDrawing = true;
       event.target.style.backgroundColor = colorSelector.value;
@@ -86,11 +92,51 @@ container.addEventListener('mouseover', function (event) {
     event.target.matches('.grid-div') &&
     !isErasing
   ) {
-    event.target.style.backgroundColor = colorSelector.value;
+    if (isRainbowing) {
+      rainbowGridDiv(event.target);
+    } else {
+      event.target.style.backgroundColor = colorSelector.value;
+    }
   } else if (isErasing && isMousePressed) {
     eraseGridDivs(event.target);
   }
 });
+
+// rainbow color functionality
+const rainbowButton = document.querySelector('.rainbowClass');
+
+rainbowButton.addEventListener('click', function () {
+  if (isErasing) {
+    isErasing = !isErasing;
+    eraserC.classList.remove('gridActive');
+  }
+  isRainbowing = !isRainbowing;
+  rainbowButton.classList.toggle('rainbowActive');
+});
+
+// rainbow setting function
+function rainbowGridDiv(target) {
+  const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+  target.style.backgroundColor = randomColor;
+}
+
+// erase setting functionality
+const eraserC = document.querySelector('.eraserC');
+
+eraserC.addEventListener('click', function () {
+  if (isRainbowing) {
+    isRainbowing = !isRainbowing;
+    rainbowButton.classList.remove('rainbowActive');
+  }
+
+  isErasing = !isErasing;
+  eraserC.classList.toggle('gridActive');
+});
+
+// erase setting function
+function eraseGridDivs(target) {
+  target.style.backgroundColor = 'whitesmoke';
+}
 
 // clear setting functionality
 const eraser = document.querySelector('.eraser');
@@ -101,19 +147,6 @@ eraser.addEventListener('click', function () {
     gridDiv.style.backgroundColor = 'whitesmoke';
   });
 });
-
-// erase setting functionality
-const eraserC = document.querySelector('.eraserC');
-
-eraserC.addEventListener('click', function () {
-  isErasing = !isErasing;
-  eraserC.classList.toggle('gridActive');
-});
-
-// function to erase grid divs
-function eraseGridDivs(target) {
-  target.style.backgroundColor = 'whitesmoke';
-}
 
 // create grid setting functionality
 const gridSetting = document.querySelector('.gridSetting');

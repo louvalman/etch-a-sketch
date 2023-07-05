@@ -43,7 +43,7 @@ input {
 }
 
 .headerDummy {
-    width: 280px;
+    width: 390px;
     margin-left:-140px;
 }
 
@@ -60,7 +60,7 @@ input {
 }
 
 .controlGridSize, .controlColor {
-    width: 280px;
+    width: 390px;
     height: 120px;
 }
 
@@ -127,8 +127,8 @@ input {
   .colorContainer label {
     position: absolute;
     font-size: 14px;
-    font-weight: 300;
-    color: #3e3e3e;
+    font-weight: bold;
+    color: whitesmoke;
     z-index: 1;
     background-color: transparent;
     pointer-events: none;
@@ -143,15 +143,15 @@ input {
 .colorContainer input[type="color"] {
     background: transparent;
     border: none;
-    inline-size: 64px;
-    block-size: 72px;
+    inline-size: 72px;
+    block-size: 80px;
 }
 
 .colorContainer input[type="color"]::-webkit-color-swatch {
     border: none;
     border-radius: 100%;
-    width: 64px;
-    height: 64px;
+    width: 72px;
+    height: 72px;
     margin: 0;
     padding: 0;
     transition: 0.1s;
@@ -169,23 +169,63 @@ input {
     background: transparent;
     border: solid 2px lightblue;
     border-radius: 100%;
-    height: 64px;
-    width: 64px;
+    height: 72px;
+    width: 72px;
     transition: 0.10s;
     opacity: 0.8;
+    position: relative;
+    overflow: hidden;
 }
 
 .buttonClass:hover {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 1.5px 4px;
-    color:whitesmoke;
+    color: whitesmoke !important;
     background-color: lightblue;
     border-color: transparent;
     cursor: pointer;
     opacity: 1;
+    font-weight: bold;
 }
+
+.rainbowClass:hover, .rainbowActive {
+    background-image: repeating-linear-gradient(to bottom right,
+                        #ff8080 0px,
+                        #ff8080 5px,
+                        #ffb280 5px,
+                        #ffb280 10px,
+                        #ffcb80 10px,
+                        #ffcb80 15px,
+                        #ffe480 15px,
+                        #ffe480 20px,
+                        #fffd80 20px,
+                        #fffd80 25px,
+                        #dbf482 25px,
+                        #dbf482 30px,
+                        #89ea83 30px,
+                        #89ea83 35px,
+                        #84b2e8 35px,
+                        #84b2e8 40px,
+                        #5344dc 40px,
+                        #5344dc 45px,
+                        #c084e8 45px,
+                        #c084e8 50px,
+                        #ec84c9 50px) !important;
+    background-size: 72px 72px;
+    color: whitesmoke;
+    opacity: 0.95;
+    font-weight: bold;
+    transition: background-position 0.5s;
+}
+
+.rainbowClass:hover {
+    background-position: -72px -72px;
+}
+
 
 .gridActive {
     background-color: lightblue;
+    font-weight: bold;
+    color: whitesmoke;
 }
 
 .borderSetting {
@@ -216,7 +256,7 @@ input {
 }
 
 .footerDummy {
-    width: 280px;
+    width: 390px;
     margin-left:-140px;
 }
 
