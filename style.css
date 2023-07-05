@@ -309,7 +309,7 @@ input {
     margin-top: 16px;
   }
   
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: 1250px) {
     .mobile-only {
       opacity: 1;
     }
