@@ -143,7 +143,7 @@ input {
 .colorContainer input[type="color"] {
     background: transparent;
     border: none;
-    inline-size: 72px;
+    inline-size: 74px;
     block-size: 80px;
 }
 
