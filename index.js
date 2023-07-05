@@ -1,5 +1,3 @@
-// make settings panel wider and add rainbow button
-
 const container = document.querySelector('.gridContainer');
 const slider = document.getElementById('setGridSize');
 const tooltip = document.querySelector('.slider-tooltip');

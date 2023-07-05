@@ -284,3 +284,28 @@ input {
   .credits .fa:hover {
     transform: rotateY(3.142rad);
   }
+
+  .mobile-only {
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    z-index: 9999;
+  }
+  
+  .mobile-only h1 {
+    color: black;
+    max-width:500px;
+    text-align: center;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .mobile-only {
+      opacity: 1;
+    }
+  }
