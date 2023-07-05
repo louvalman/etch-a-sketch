@@ -247,7 +247,7 @@ input {
 .footerContainer {
     display: flex;
     justify-content: space-evenly;
-    margin: 28px 0px;
+    margin: 16px 0px;
 }
 
 .footerTitle {
