@@ -288,6 +288,7 @@ input {
   .mobile-only {
     opacity: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -302,6 +303,10 @@ input {
     color: black;
     max-width:500px;
     text-align: center;
+  }
+
+  .m-t {
+    margin-top: 16px;
   }
   
   @media only screen and (max-width: 1200px) {
