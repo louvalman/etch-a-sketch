@@ -312,5 +312,6 @@ input {
   @media only screen and (max-width: 1250px) {
     .mobile-only {
       opacity: 1;
+      display:none;
     }
   }
