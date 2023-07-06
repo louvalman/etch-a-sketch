@@ -287,7 +287,7 @@ input {
 
   .mobile-only {
     opacity: 0;
-    display: flex;
+    display:none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -311,7 +311,7 @@ input {
   
   @media only screen and (max-width: 1250px) {
     .mobile-only {
+      display: flex;
       opacity: 1;
-      display:none;
     }
   }
