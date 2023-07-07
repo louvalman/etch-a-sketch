@@ -54,6 +54,7 @@ function updateGrid() {
   }
 
   gridSetting.classList.remove('gridActive');
+  eraserC.classList.remove('gridActive');
 }
 
 // initialize color and erasing variables and select colorpicker
@@ -63,6 +64,18 @@ let isRainbowing = false;
 let isMousePressed = false;
 
 const colorSelector = document.getElementById('favcolor');
+
+colorSelector.addEventListener('click', function () {
+  gridSetting.classList.remove('gridActive');
+  eraserC.classList.remove('gridActive');
+  rainbowButton.classList.remove('rainbowActive');
+
+  if (isErasing) {
+    isErasing = false;
+  } else if (isRainbowing) {
+    isRainbowing = false;
+  }
+});
 
 // set color of clicked grid element to input value
 container.addEventListener('mousedown', function (event) {
