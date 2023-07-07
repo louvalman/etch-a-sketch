@@ -52,6 +52,8 @@ function updateGrid() {
     gridDiv.style.height = divSize + 'px';
     container.appendChild(gridDiv);
   }
+
+  gridSetting.classList.remove('gridActive');
 }
 
 // initialize color and erasing variables and select colorpicker
