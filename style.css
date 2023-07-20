@@ -214,6 +214,7 @@ input {
     opacity: 0.95;
     font-weight: bold;
     transition: background-position 0.5s;
+    border-color: transparent;
 }
 
 .rainbow-class:hover {
