@@ -1,5 +1,5 @@
-const container = document.querySelector('.gridContainer');
-const slider = document.getElementById('setGridSize');
+const container = document.querySelector('.grid-container');
+const slider = document.getElementById('set-grid-size');
 const tooltip = document.querySelector('.slider-tooltip');
 
 // Set grid size and fill with divs (on load and on value input with slider)
@@ -101,15 +101,15 @@ container.addEventListener('mouseover', function (event) {
 });
 
 // rainbow color functionality
-const rainbowButton = document.querySelector('.rainbowClass');
+const rainbowButton = document.querySelector('.rainbow-class');
 
 rainbowButton.addEventListener('click', function () {
   if (isErasing) {
     isErasing = !isErasing;
-    eraserC.classList.remove('gridActive');
+    eraserC.classList.remove('grid-active');
   }
   isRainbowing = !isRainbowing;
-  rainbowButton.classList.toggle('rainbowActive');
+  rainbowButton.classList.toggle('rainbow-active');
 });
 
 // rainbow setting function
@@ -119,16 +119,16 @@ function rainbowGridDiv(target) {
 }
 
 // erase setting functionality
-const eraserC = document.querySelector('.eraserC');
+const eraserC = document.querySelector('.eraser-c');
 
 eraserC.addEventListener('click', function () {
   if (isRainbowing) {
     isRainbowing = !isRainbowing;
-    rainbowButton.classList.remove('rainbowActive');
+    rainbowButton.classList.remove('rainbow-active');
   }
 
   isErasing = !isErasing;
-  eraserC.classList.toggle('gridActive');
+  eraserC.classList.toggle('grid-active');
 });
 
 // erase setting function
@@ -147,16 +147,16 @@ eraser.addEventListener('click', function () {
 });
 
 // create grid setting functionality
-const gridSetting = document.querySelector('.gridSetting');
+const gridSetting = document.querySelector('.grid-setting');
 
 gridSetting.addEventListener('click', function () {
   const gridDivs = document.querySelectorAll('.grid-div');
-  gridSetting.classList.toggle('gridActive');
+  gridSetting.classList.toggle('grid-active');
   gridDivs.forEach(function (gridDiv) {
-    if (gridDiv.classList.contains('borderSetting')) {
-      gridDiv.classList.remove('borderSetting');
+    if (gridDiv.classList.contains('border-setting')) {
+      gridDiv.classList.remove('border-setting');
     } else {
-      gridDiv.classList.add('borderSetting');
+      gridDiv.classList.add('border-setting');
     }
   });
 });
