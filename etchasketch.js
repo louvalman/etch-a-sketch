@@ -1,6 +1,17 @@
+// Declare variables for main page elements
 const container = document.querySelector('.grid-container');
 const slider = document.getElementById('set-grid-size');
 const tooltip = document.querySelector('.slider-tooltip');
+
+// Show tooltip function
+function showTooltip() {
+  tooltip.style.opacity = '1';
+}
+
+// Fade tooltip function
+function fadeTooltip() {
+  tooltip.style.opacity = '0';
+}
 
 // Set grid size and fill with divs (on load and on value input with slider)
 document.addEventListener('DOMContentLoaded', function () {
@@ -24,16 +35,6 @@ slider.addEventListener('mouseover', function () {
   showTooltip();
   setTimeout(fadeTooltip, 1000);
 });
-
-// Show tooltip function
-function showTooltip() {
-  tooltip.style.opacity = '1';
-}
-
-// Fade tooltip function
-function fadeTooltip() {
-  tooltip.style.opacity = '0';
-}
 
 function updateGrid() {
   let gridSize = slider.value;
