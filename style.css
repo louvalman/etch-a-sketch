@@ -307,7 +307,7 @@ input {
     margin-top: 16px;
 }
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 1270px) {
     .mobile-only {
         display: flex;
         opacity: 1;
