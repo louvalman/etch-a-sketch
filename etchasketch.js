@@ -1,29 +1,7 @@
+// Declare variables for main page elements
 const container = document.querySelector('.grid-container');
 const slider = document.getElementById('set-grid-size');
 const tooltip = document.querySelector('.slider-tooltip');
-
-// Set grid size and fill with divs (on load and on value input with slider)
-document.addEventListener('DOMContentLoaded', function () {
-  updateGrid();
-  showTooltip();
-  setTimeout(fadeTooltip, 5000); // Fade the tooltip after 5 seconds
-});
-
-let value = slider.value;
-tooltip.innerHTML = `<i>${value} x ${value}</i>`;
-
-slider.addEventListener('input', function () {
-  value = slider.value;
-  tooltip.innerHTML = `<i>${value} x ${value}</i>`;
-  updateGrid();
-  showTooltip();
-  setTimeout(fadeTooltip, 5000); // Fade the tooltip after 5 seconds
-});
-
-slider.addEventListener('mouseover', function () {
-  showTooltip();
-  setTimeout(fadeTooltip, 1000);
-});
 
 // Show tooltip function
 function showTooltip() {
@@ -35,6 +13,30 @@ function fadeTooltip() {
   tooltip.style.opacity = '0';
 }
 
+// Set grid size and fill with divs (on load and on value input with slider)
+document.addEventListener('DOMContentLoaded', function () {
+  updateGrid();
+  showTooltip();
+  setTimeout(fadeTooltip, 5000);
+});
+
+let value = slider.value;
+tooltip.innerHTML = `<i>${value} x ${value}</i>`;
+
+slider.addEventListener('input', function () {
+  value = slider.value;
+  tooltip.innerHTML = `<i>${value} x ${value}</i>`;
+  updateGrid();
+  showTooltip();
+  setTimeout(fadeTooltip, 5000);
+});
+
+slider.addEventListener('mouseover', function () {
+  showTooltip();
+  setTimeout(fadeTooltip, 1000);
+});
+
+// Declare the function that creates and updates the grid on page initial load, and when slider is interacted with
 function updateGrid() {
   let gridSize = slider.value;
   let totalSquares = gridSize * gridSize;
@@ -53,11 +55,11 @@ function updateGrid() {
     container.appendChild(gridDiv);
   }
 
-  gridSetting.classList.remove('gridActive');
-  eraserC.classList.remove('gridActive');
+  gridSetting.classList.remove('grid-active');
+  eraserC.classList.remove('grid-active');
 }
 
-// initialize color and erasing variables and select colorpicker
+// Initialize color and erasing variables and declare variable for colorpicker
 let isDrawing = false;
 let isErasing = false;
 let isRainbowing = false;
@@ -66,9 +68,9 @@ let isMousePressed = false;
 const colorSelector = document.getElementById('favcolor');
 
 colorSelector.addEventListener('click', function () {
-  gridSetting.classList.remove('gridActive');
-  eraserC.classList.remove('gridActive');
-  rainbowButton.classList.remove('rainbowActive');
+  gridSetting.classList.remove('grid-active');
+  eraserC.classList.remove('grid-active');
+  rainbowButton.classList.remove('rainbow-active');
 
   if (isErasing) {
     isErasing = false;
@@ -77,7 +79,7 @@ colorSelector.addEventListener('click', function () {
   }
 });
 
-// set color of clicked grid element to input value
+// Set color of clicked grid element to input value
 container.addEventListener('mousedown', function (event) {
   if (event.target.matches('.grid-div')) {
     isMousePressed = true;

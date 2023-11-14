@@ -252,7 +252,7 @@ input {
 
 .footer-title {
     width: 600px;
-    margin-left: -24px;
+    margin-left: -20px;
 }
 
 .footer-dummy {
@@ -308,7 +308,7 @@ input {
     margin-top: 16px;
 }
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 1270px) {
     .mobile-only {
         display: flex;
         opacity: 1;
