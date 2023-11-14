@@ -19,6 +19,7 @@ h1 {
 h3 {
     margin: 10px 0px;
     color: #3e3e3e;
+    font-size: 26px;
 }
 
 input {
@@ -270,7 +271,7 @@ input {
 }
 
 .credits a:hover {
-    color: lightskyblue;
+    color: lightblue;
 }
 
 .credits .fa {
